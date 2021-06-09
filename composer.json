@@ -9,6 +9,7 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "friends-of-behat/mink-extension": "^2.5",
+        "nelmio/api-doc-bundle": "^4.3",
         "nelmio/cors-bundle": "^2.1",
         "symfony/asset": "5.3.*",
         "symfony/console": "5.3.*",
@@ -35,7 +36,7 @@
     "autoload-dev": {
         "psr-4": {
 
-            "RaspinuOffice\\Tests\\": "tests/"
+            "RaspinuOffice\\Tests\\": "tests/src/"
         }
     },
     "replace": {
@@ -70,6 +71,7 @@
         "phpunit/phpunit": "^9.5",
         "symfony/phpunit-bridge": "^5.3",
         "symfony/stopwatch": "^5.3",
-        "symfony/web-profiler-bundle": "^5.3"
+        "symfony/web-profiler-bundle": "^5.3",
+        "vimeo/psalm": "^4.7"
     }
 }
