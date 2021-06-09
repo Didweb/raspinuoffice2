@@ -2,12 +2,17 @@
 namespace  RaspinuOffice\Tests\Api\Application\Bootstrap;
 
 use Behat\Behat\Context\Context;
+use Symfony\Component\HttpClient\Exception\TransportException;
+use Symfony\Component\HttpClient\HttpClient;
+
 
 /**
  * Defines application features from the specific context.
  */
 class FeatureContext implements Context
 {
+    private int $statusCode;
+    private  $client;
     /**
      * Initializes context.
      *
@@ -17,6 +22,7 @@ class FeatureContext implements Context
      */
     public function __construct()
     {
+        $this->client = HttpClient::create();
     }
 
     /**
@@ -32,6 +38,15 @@ class FeatureContext implements Context
      */
     public function iPostTo($uri)
     {
+        try {
+            $response = $this->client->request(
+                'GET',
+                'http://localhost:8080/api/check/status'
+            );
+            $this->statusCode = $response->getStatusCode();
+        } catch (TransportException $exception) {
+            $this->statusCode = 503;
+        }
         return true;
     }
 
@@ -40,6 +55,6 @@ class FeatureContext implements Context
      */
     public function theResponseCodeIs($code)
     {
-        return $code === 200;
+        return $this->statusCode === $code;
     }
 }

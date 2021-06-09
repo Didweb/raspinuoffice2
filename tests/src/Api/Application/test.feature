@@ -9,5 +9,5 @@ Feature:
     {
     }
     """
-    When i GET to "http://localhost:8080/api/doc"
+    When i GET to "http://localhost:8080/api/check/status"
     Then the response code is 200
