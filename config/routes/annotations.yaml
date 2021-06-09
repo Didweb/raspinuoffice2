@@ -1,9 +1,9 @@
 api_core:
-  resource: ../../src/Api/Application/Controller
-  type: annotation
-  prefix: /api
-  defaults:
-    _format: 'json'
+    resource: ../../src/Api/Application/Controller
+    type: annotation
+    prefix: /api
+    defaults:
+        _format: 'json'
 
 kernel:
     resource: ../../src/Kernel.php
