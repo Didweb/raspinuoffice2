@@ -4,7 +4,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
@@ -67,6 +67,7 @@
     "require-dev": {
         "behat/behat": "^3.8",
         "behat/mink": "^1.8",
+        "phpunit/phpunit": "^9.5",
         "symfony/phpunit-bridge": "^5.3",
         "symfony/stopwatch": "^5.3",
         "symfony/web-profiler-bundle": "^5.3"
