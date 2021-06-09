@@ -1,0 +1,9 @@
+default:
+  autoload:
+    '': ./tests/src/Api/Application/Bootstrap
+  suites:
+    default:
+      paths: [ tests/src/Api/Application ]
+      contexts:
+        - RaspinuOffice\Tests\Api\Application\Bootstrap\FeatureContext
+
