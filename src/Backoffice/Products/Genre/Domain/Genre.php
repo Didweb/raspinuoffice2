@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace RaspinuOffice\Backoffice\Products\Genre\Domain;
 
-
 use RaspinuOffice\Backoffice\Products\Genre\Domain\ValueObjects\GenreId;
 use RaspinuOffice\Backoffice\Products\Genre\Domain\ValueObjects\GenreName;
 

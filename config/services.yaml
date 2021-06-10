@@ -17,5 +17,13 @@ services:
         resource: '../src/'
         exclude: '../src/{Infrastructure/Persistence/Doctrine/Migrations,tests,Kernel.php}'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    command_handlers:
+        namespace: RaspinuOffice\Backoffice\
+        resource: '%kernel.project_dir%/src/Backoffice/*/*/Application/Command/{*/*CommandHandler.php,*CommandHandler.php}'
+        autoconfigure: false
+        tags:
+            - { name: messenger.message_handler, bus: command.bus }
+
+    RaspinuOffice\Api\Application\Controller\:
+        resource: '../src/Api/Application/Controller/**/{*Controller.php}'
+        tags: ['controller.service_arguments']

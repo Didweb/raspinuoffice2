@@ -1,0 +1,8 @@
+RaspinuOffice\Backoffice\Products\Genre\Domain\Genre:
+  type: entity
+
+  id:
+    id: { type: genre_id }
+
+  fields:
+    name: { type: genre_name, unique: true}

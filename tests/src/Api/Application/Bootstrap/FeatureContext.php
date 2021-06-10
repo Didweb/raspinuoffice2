@@ -1,5 +1,6 @@
 <?php
-namespace  RaspinuOffice\Tests\Api\Application\Bootstrap;
+
+namespace RaspinuOffice\Tests\Api\Application\Bootstrap;
 
 use Behat\Behat\Context\Context;
 use Symfony\Component\HttpClient\Exception\TransportException;
@@ -11,8 +12,9 @@ use Symfony\Component\HttpClient\HttpClient;
  */
 class FeatureContext implements Context
 {
-    private int $statusCode;
-    private  $client;
+    private int $statusCode = 0;
+    private $client;
+
     /**
      * Initializes context.
      *
@@ -34,20 +36,39 @@ class FeatureContext implements Context
     }
 
     /**
+     * @When /^i PUT to "([^"]*)"$/
+     */
+    public function iPutTo($uri)
+    {
+        try {
+            $response = $this->client->request(
+                'PUT',
+                $uri
+            );
+            $this->statusCode = $response->getStatusCode();
+            echo "ResponseCodeIs: " . $this->statusCode ;
+            return true;
+        } catch (TransportException $exception) {
+            throw new \Exception($exception->getMessage(),'503');
+        }
+    }
+
+    /**
      * @When /^i GET to "([^"]*)"$/
      */
-    public function iPostTo($uri)
+    public function iGetTo($uri)
     {
         try {
             $response = $this->client->request(
                 'GET',
-                'http://localhost:8080/api/check/status'
+                $uri
             );
             $this->statusCode = $response->getStatusCode();
+            echo "ResponseCodeIs: " . $this->statusCode ;
+            return true;
         } catch (TransportException $exception) {
-            $this->statusCode = 503;
+            throw new \Exception($exception->getMessage(),'503');
         }
-        return true;
     }
 
     /**
@@ -55,6 +76,13 @@ class FeatureContext implements Context
      */
     public function theResponseCodeIs($code)
     {
-        return $this->statusCode === $code;
+        echo "ResponseCodeIs: " . $this->statusCode . " expected " . $code;
+        try{
+            return  $this->statusCode == $code;
+        } catch (TransportException $exception) {
+            throw new \Exception($exception->getMessage(),'500');
+        }
+
+
     }
 }
