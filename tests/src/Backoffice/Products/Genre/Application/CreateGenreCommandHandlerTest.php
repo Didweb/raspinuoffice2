@@ -16,7 +16,6 @@ use RaspinuOffice\Tests\Double\Backoffice\Products\Genre\Domain\GenerInMemoryRep
 use RaspinuOffice\Tests\Double\Backoffice\Products\Genre\Domain\GenreStub;
 use RaspinuOffice\Tests\Double\Backoffice\Products\Genre\Domain\ValueObjects\GenreIdStub;
 use RaspinuOffice\Tests\Double\Backoffice\Products\Genre\Domain\ValueObjects\GenreNameStub;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 final class CreateGenreCommandHandlerTest extends TestCase
 {
@@ -52,7 +51,6 @@ final class CreateGenreCommandHandlerTest extends TestCase
 
     public function test_should_create_genre_when_name_exists(): void
     {
-
         $this->expectException(GenreThisNameAlreadyExist::class);
 
         $useCase = new CreateGenre($this->repository, $this->thisNameAlreadyExists);
@@ -68,7 +66,5 @@ final class CreateGenreCommandHandlerTest extends TestCase
         );
 
         $useCase->__invoke($command);
-
-
     }
 }
