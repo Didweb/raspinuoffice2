@@ -19,7 +19,7 @@ final class PaginatedGenreResponseConverter
         $this->genreResponseConverter = $genreResponseConverter;
     }
 
-    public function invoke(PaginatedCollection $paginatedCollection, Paginated $paginated): PaginatedResponse
+    public function __invoke(PaginatedCollection $paginatedCollection, Paginated $paginated): PaginatedResponse
     {
         $genres = $paginatedCollection->map(
             function (Genre $genre) {

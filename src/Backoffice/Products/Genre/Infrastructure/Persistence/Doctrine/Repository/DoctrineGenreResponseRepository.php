@@ -40,7 +40,7 @@ final class DoctrineGenreResponseRepository implements GenreResponseRepository
 
         $query = $query->getQuery();
 
-        return $this->paginatedGenreResponseConverter->invoke(
+        return $this->paginatedGenreResponseConverter->__invoke(
             PaginatedCollection::createFromQuery($query, $paginated),
             $paginated
         );

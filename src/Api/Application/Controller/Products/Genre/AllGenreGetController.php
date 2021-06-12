@@ -22,8 +22,13 @@ final class AllGenreGetController extends ApiController
      *     name="Genre",
      *     description="Operations about genre"
      * ),
-     * @OA\Parameter(parameter="page",name="page", description="Requested page number", @OA\Schema(type="string"), in="query", required=false)
-     * @OA\Parameter(parameter="pageSize",name="pageSize", description="Page size. Number of elements per page.", @OA\Schema(type="string"), in="query", required=false),
+     * @OA\Parameter(parameter="page",name="page",
+     *     description="Requested page number",
+     *     @OA\Schema(type="string"),
+     *     in="query", required=false)
+     * @OA\Parameter(parameter="pageSize",name="pageSize",
+     *     description="Page size. Number of elements per page.",
+     *     @OA\Schema(type="string"), in="query", required=false),
      * @OA\Response(
      *        response="200",
      *        description="Success: Genre listed",
