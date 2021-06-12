@@ -45,7 +45,8 @@ final class GenerInMemoryRepositoryStub
             {
                 $filter = $this->arrayCollection->filter(
                     function (Genre $genre) use ($genreName) {
-                        return new GenreNameStub() === $genreName;
+
+                        return  (string)$genre->name() == $genreName;
                     }
                 );
 

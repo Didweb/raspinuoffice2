@@ -24,7 +24,7 @@ final class CreateGenreCommandHandlerTest extends TestCase
     private CreateGenre $useCase;
     private GenreRepository $repository;
     private ThisNameAlreadyExists $thisNameAlreadyExists;
-    private  $genreInit;
+    private $genreInit;
 
     protected function setUp(): void
     {
