@@ -1,0 +1,13 @@
+jms_serializer:
+  default_context:
+    serialization:
+      serialize_null: true
+  visitors:
+    xml_serialization:
+      format_output: '%kernel.debug%'
+  metadata:
+    auto_detection: true
+    directories:
+      Budget:
+        namespace_prefix: "RaspinuOffice\\Backoffice\\Products\\Genre\\Infrastructure\\Response"
+        path: "%kernel.project_dir%/src/Backoffice/Products/Genre/Infrastructure/Serializer"
