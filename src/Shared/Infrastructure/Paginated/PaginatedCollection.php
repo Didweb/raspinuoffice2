@@ -10,6 +10,7 @@ use Closure;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use RaspinuOffice\Shared\Domain\Paginated\Paginated;
 
 final class PaginatedCollection
 {

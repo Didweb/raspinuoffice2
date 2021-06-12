@@ -7,8 +7,8 @@ namespace RaspinuOffice\Backoffice\Products\Genre\Application\Query;
 
 use RaspinuOffice\Backoffice\Products\Genre\Application\Services\FindAllGenre;
 use RaspinuOffice\Backoffice\Products\Genre\Domain\GenreResponseRepository;
-use RaspinuOffice\Shared\Infrastructure\Paginated\Paginated;
-use RaspinuOffice\Shared\Infrastructure\Paginated\PaginatedResponse;
+use RaspinuOffice\Shared\Domain\Paginated\Paginated;
+use RaspinuOffice\Shared\Domain\Paginated\PaginatedResponse;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 final class AllGenreQueryHandler implements MessageHandlerInterface

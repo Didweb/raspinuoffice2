@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RaspinuOffice\Shared\Infrastructure\Paginated;
+namespace RaspinuOffice\Shared\Domain\Paginated;
 
 
 use InvalidArgumentException;
