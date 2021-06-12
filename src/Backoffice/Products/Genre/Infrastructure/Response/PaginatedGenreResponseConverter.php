@@ -6,9 +6,9 @@ namespace RaspinuOffice\Backoffice\Products\Genre\Infrastructure\Response;
 
 
 use RaspinuOffice\Backoffice\Products\Genre\Domain\Genre;
-use RaspinuOffice\Shared\Infrastructure\Paginated\Paginated;
+use RaspinuOffice\Shared\Domain\Paginated\Paginated;
 use RaspinuOffice\Shared\Infrastructure\Paginated\PaginatedCollection;
-use RaspinuOffice\Shared\Infrastructure\Paginated\PaginatedResponse;
+use RaspinuOffice\Shared\Infrastructure\Paginated\PaginatedResponseDoctrine;
 
 final class PaginatedGenreResponseConverter
 {
@@ -19,7 +19,7 @@ final class PaginatedGenreResponseConverter
         $this->genreResponseConverter = $genreResponseConverter;
     }
 
-    public function __invoke(PaginatedCollection $paginatedCollection, Paginated $paginated): PaginatedResponse
+    public function __invoke(PaginatedCollection $paginatedCollection, Paginated $paginated): PaginatedResponseDoctrine
     {
         $genres = $paginatedCollection->map(
             function (Genre $genre) {
@@ -27,7 +27,7 @@ final class PaginatedGenreResponseConverter
             }
         );
 
-        return PaginatedResponse::create(
+        return PaginatedResponseDoctrine::create(
             $genres,
             $paginated->pageSize(),
             $paginatedCollection->totalCollection(),

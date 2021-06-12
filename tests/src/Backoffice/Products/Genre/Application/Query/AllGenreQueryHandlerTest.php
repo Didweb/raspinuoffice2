@@ -12,7 +12,6 @@ use RaspinuOffice\Backoffice\Products\Genre\Application\Services\FindAllGenre;
 use RaspinuOffice\Backoffice\Products\Genre\Infrastructure\Response\GenreResponseConverter;
 use RaspinuOffice\Backoffice\Products\Genre\Infrastructure\Response\PaginatedGenreResponseConverter;
 use RaspinuOffice\Tests\Double\Backoffice\Products\Genre\Domain\GenerInMemoryRepositoryResponseStub;
-use RaspinuOffice\Tests\Double\Backoffice\Products\Genre\Domain\GenerInMemoryRepositoryStub;
 use RaspinuOffice\Tests\Double\Backoffice\Products\Genre\Domain\GenreStub;
 
 final class AllGenreQueryHandlerTest extends TestCase
@@ -33,7 +32,7 @@ final class AllGenreQueryHandlerTest extends TestCase
         $this->SUT = new AllGenreQueryHandler($repositoryResponse);
 
 
-        for ($n = 0; $n < 10;) {
+        for ($n = 0; $n < 20;) {
             $genre = GenreStub::random();
             $this->genreRandom[$n] = $genre;
 
@@ -50,7 +49,7 @@ final class AllGenreQueryHandlerTest extends TestCase
         $query = new AllGenreQuery(1,5);
 
         $result = $this->SUT->__invoke($query);
-        $idRandom = rand(1,5);
+        $idRandom = rand(0,4);
         $this->assertEquals((string)$this->genreRandom[$idRandom]->name(), (string)$result->data()[$idRandom]->name());
     }
 
@@ -59,7 +58,8 @@ final class AllGenreQueryHandlerTest extends TestCase
         $query = new AllGenreQuery(2,5);
 
         $result = $this->SUT->__invoke($query);
-        $idRandom = rand(6,9);
+
+        $idRandom = rand(5,9);
         $this->assertEquals((string)$this->genreRandom[$idRandom]->name(), (string)$result->data()[$idRandom]->name());
     }
 }

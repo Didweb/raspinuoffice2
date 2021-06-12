@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace RaspinuOffice\Backoffice\Products\Genre\Application\Services;
 
 use RaspinuOffice\Backoffice\Products\Genre\Domain\GenreResponseRepository;
-use RaspinuOffice\Shared\Infrastructure\Paginated\Paginated;
-use RaspinuOffice\Shared\Infrastructure\Paginated\PaginatedResponse;
+use RaspinuOffice\Shared\Domain\Paginated\Paginated;
+use RaspinuOffice\Shared\Domain\Paginated\PaginatedResponse;
 
 class FindAllGenre
 {

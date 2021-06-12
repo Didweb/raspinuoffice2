@@ -11,9 +11,9 @@ use Doctrine\ORM\EntityRepository;
 use RaspinuOffice\Backoffice\Products\Genre\Domain\Genre;
 use RaspinuOffice\Backoffice\Products\Genre\Domain\GenreResponseRepository;
 use RaspinuOffice\Backoffice\Products\Genre\Infrastructure\Response\PaginatedGenreResponseConverter;
-use RaspinuOffice\Shared\Infrastructure\Paginated\Paginated;
+use RaspinuOffice\Shared\Domain\Paginated\Paginated;
 use RaspinuOffice\Shared\Infrastructure\Paginated\PaginatedCollection;
-use RaspinuOffice\Shared\Infrastructure\Paginated\PaginatedResponse;
+use RaspinuOffice\Shared\Infrastructure\Paginated\PaginatedResponseDoctrine;
 
 final class DoctrineGenreResponseRepository implements GenreResponseRepository
 {
@@ -31,7 +31,7 @@ final class DoctrineGenreResponseRepository implements GenreResponseRepository
         $this->paginatedGenreResponseConverter = $paginatedGenreResponseConverter;
     }
 
-    public function allGenre(Paginated $paginated): PaginatedResponse
+    public function allGenre(Paginated $paginated): PaginatedResponseDoctrine
     {
 
         $query = $this

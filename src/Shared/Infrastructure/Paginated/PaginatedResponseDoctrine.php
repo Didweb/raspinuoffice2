@@ -6,8 +6,10 @@ namespace RaspinuOffice\Shared\Infrastructure\Paginated;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
+use RaspinuOffice\Shared\Application\Paginated\PaginatedResponseInfo;
+use RaspinuOffice\Shared\Domain\Paginated\PaginatedResponse;
 
-final class PaginatedResponse
+final class PaginatedResponseDoctrine implements PaginatedResponse
 {
     private ArrayCollection $data;
     private PaginatedResponseInfo $info;
