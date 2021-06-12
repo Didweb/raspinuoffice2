@@ -8,7 +8,7 @@ use RaspinuOffice\Backoffice\Products\Genre\Domain\GenreResponseRepository;
 use RaspinuOffice\Shared\Infrastructure\Paginated\Paginated;
 use RaspinuOffice\Shared\Infrastructure\Paginated\PaginatedResponse;
 
-final class FindAllGenre
+class FindAllGenre
 {
     private GenreResponseRepository $repository;
 
