@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace RaspinuOffice\Shared\Infrastructure\Paginated;
 
 
-
 use ArrayIterator;
 use Closure;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -22,6 +21,7 @@ final class PaginatedCollection
         $this->collection = $data;
         $this->total = $total;
     }
+
     public static function createFromQuery(Query $query, Paginated $paginated): self
     {
         $query->setFirstResult($paginated->offset());
