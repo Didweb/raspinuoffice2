@@ -7,6 +7,7 @@ namespace RaspinuOffice\Backoffice\Products\Genre\Application\Command;
 
 use RaspinuOffice\Backoffice\Products\Genre\Application\Services\CreateGenre;
 
+
 final class CreateGenreCommandHandler
 {
     private CreateGenre $createGenre;

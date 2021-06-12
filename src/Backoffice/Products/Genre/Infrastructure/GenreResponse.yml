@@ -1,0 +1,7 @@
+RaspinuOffice\Backoffice\Products\Genre\Infrastructure\Response\GenreResponse:
+
+  properties:
+    id:
+      groups: []
+    name:
+      groups: [ ]

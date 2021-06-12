@@ -14,6 +14,7 @@
         "doctrine/orm": "^2.9",
         "fakerphp/faker": "^1.14",
         "friends-of-behat/mink-extension": "^2.5",
+        "jms/serializer": "^3.12",
         "nelmio/api-doc-bundle": "^4.3",
         "nelmio/cors-bundle": "^2.1",
         "ramsey/uuid": "^4.1",

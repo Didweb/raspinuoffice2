@@ -29,11 +29,10 @@ final class CreateGenreRequest
 
     public static function fromContent(array $content): self
     {
-
         $content = $content['genre'][0];
 
-        if (!isset($content['name'])
-        ) {
+        if (!isset($content['name']))
+        {
             throw new InvalidArgumentException('Field name is required');
         }
 
