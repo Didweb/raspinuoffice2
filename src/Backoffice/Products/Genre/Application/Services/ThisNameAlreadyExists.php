@@ -23,7 +23,7 @@ final class ThisNameAlreadyExists
     {
         $thisNameAlreadyExists = $this->repository->findByName($name);
 
-        if (!$thisNameAlreadyExists) {
+        if ($thisNameAlreadyExists !== null) {
             throw GenreThisNameAlreadyExist::ofName($name);
         }
         return false;

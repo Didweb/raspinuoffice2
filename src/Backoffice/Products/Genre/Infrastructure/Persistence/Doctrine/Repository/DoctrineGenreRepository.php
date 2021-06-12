@@ -16,6 +16,7 @@ final class DoctrineGenreRepository implements GenreRepository
 {
     private EntityManagerInterface $em;
     private EntityRepository $repository;
+
     public function __construct(EntityManagerInterface $manager)
     {
         $this->em = $manager;
