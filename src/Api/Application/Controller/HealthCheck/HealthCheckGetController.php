@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace RaspinuOffice\Api\Application\Controller\HealthCheck;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
@@ -24,8 +23,9 @@ final class HealthCheckGetController
      *        response="200",
      *        description="Success: Check is OK",
      *     )
+     * @return Response
      **/
-    public function __invoke(Request $request): Response
+    public function __invoke(): Response
     {
        return  new Response(json_encode(['Api status' => 'ok']), Response::HTTP_OK);
 
