@@ -26,7 +26,7 @@ final class CreateGenreCommandHandlerTest extends TestCase
     private ThisNameAlreadyExists $thisNameAlreadyExists;
     private $genreInit;
 
-    protected function setUp(): void
+    public function __construct()
     {
         $this->repository = GenerInMemoryRepositoryStub::empty();
         $this->thisNameAlreadyExists = new ThisNameAlreadyExists($this->repository);
@@ -37,7 +37,7 @@ final class CreateGenreCommandHandlerTest extends TestCase
         $this->genreInit = GenreStub::random();
         $this->repository->save($this->genreInit);
 
-        parent::setUp();
+        parent::__construct();
     }
 
     public function test_should_create_genre(): void

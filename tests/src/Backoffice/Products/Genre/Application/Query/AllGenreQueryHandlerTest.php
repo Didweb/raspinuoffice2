@@ -21,8 +21,9 @@ final class AllGenreQueryHandlerTest extends TestCase
     private AllGenreQueryHandler $SUT;
     private array $genreRandom;
 
-    protected function setUp(): void
+    public function __construct()
     {
+        parent::__construct();
         $genreResponseConverter = new GenreResponseConverter();
         $paginatedGenreResponseConverter = new PaginatedGenreResponseConverter($genreResponseConverter);
         $repositoryResponse = GenerInMemoryRepositoryResponseStub::empty($paginatedGenreResponseConverter);
@@ -39,8 +40,6 @@ final class AllGenreQueryHandlerTest extends TestCase
             $repositoryResponse->save($genre);
             $n++;
         }
-
-        parent::setUp();
     }
 
 
