@@ -21,9 +21,9 @@ final class AllGenreQueryHandlerTest extends TestCase
     private AllGenreQueryHandler $SUT;
     private array $genreRandom;
 
-    public function __construct()
+    protected function setUp(): void
     {
-        parent::__construct();
+        parent::setUp();
         $genreResponseConverter = new GenreResponseConverter();
         $paginatedGenreResponseConverter = new PaginatedGenreResponseConverter($genreResponseConverter);
         $repositoryResponse = GenerInMemoryRepositoryResponseStub::empty($paginatedGenreResponseConverter);
