@@ -13,5 +13,7 @@ interface GenreRepository
 
     public function findBy(GenreId $id): ?Genre;
 
-    public function findByName(GenreName $id): ?Genre;
+    public function findByName(GenreName $name): ?Genre;
+
+    public function remove(Genre $genre): void;
 }

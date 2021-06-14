@@ -32,11 +32,17 @@ final class DoctrineGenreRepository implements GenreRepository
 
     public function findBy(GenreId $id): ?Genre
     {
-        return $this->repository->findOneBy(['id' => $id])[0];
+        return $this->repository->find($id);
     }
 
     public function findByName(GenreName $name): ?Genre
     {
         return $this->repository->findOneBy(['name' => $name]);
+    }
+
+    public function remove(Genre $genre): void
+    {
+        $this->em->remove($genre);
+        $this->em->flush();
     }
 }
