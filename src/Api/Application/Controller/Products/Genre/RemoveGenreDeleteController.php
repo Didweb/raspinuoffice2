@@ -14,14 +14,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
 
-final class RemoveGenreDeleteController  extends ApiController
+final class RemoveGenreDeleteController extends ApiController
 {
     /**
      * Remove a genre
      *
      * @Route("/genre/delete", methods={"DELETE"}, name="api_genre_delete")
      * @OA\Tag(
-     *     name="Genre",
+     *     name="Products Genre",
      *     description="Operations about Genre"
      * )
      * @OA\RequestBody(
@@ -70,12 +70,7 @@ final class RemoveGenreDeleteController  extends ApiController
 
         $this->dispatch($removeGenreCommand);
 
-        return new JsonResponse(
-            json_encode($removeGenreCommand->_toArray()),
-            Response::HTTP_CREATED,
-            [],
-            true
-        );
+        return $this->makeResponse($removeGenreCommand->_toArray(), Response::HTTP_CREATED);
 
     }
 

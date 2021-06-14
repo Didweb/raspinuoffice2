@@ -21,7 +21,7 @@ final class CreateGenrePutController extends ApiController
      *
      * @Route("/genre/add", methods={"PUT"}, name="api_genre_add")
      * @OA\Tag(
-     *     name="Genre",
+     *     name="Products Genre",
      *     description="Operations about Genre"
      * )
      * @OA\RequestBody(

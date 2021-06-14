@@ -18,7 +18,7 @@ final class AllGenreGetController extends ApiController
      *
      * @Route("/list/genres", methods={"GET"}, name="api_list_genres")
      * @OA\Tag(
-     *     name="Genre",
+     *     name="Products Genre",
      *     description="Operations about genre"
      * ),
      * @OA\Parameter(parameter="page",name="page",
