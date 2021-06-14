@@ -20,7 +20,7 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     RaspinuOffice\:
         resource: '../src/'
-        exclude: '../src/{Infrastructure/Persistence/Doctrine/Migrations,tests,Kernel.php}'
+        exclude: '../src/{Share/Infrastructure/Persistence/Doctrine/Migrations,tests,Kernel.php}'
 
     command_handlers:
         namespace: RaspinuOffice\Backoffice\

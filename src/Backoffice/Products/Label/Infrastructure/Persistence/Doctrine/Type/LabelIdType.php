@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RaspinuOffice\Backoffice\Products\Label\Infrastructure\Persistence\Type;
+namespace RaspinuOffice\Backoffice\Products\Label\Infrastructure\Persistence\Doctrine\Type;
 
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;

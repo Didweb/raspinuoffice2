@@ -32,13 +32,10 @@ final class CreateGenreCommandHandlerTest extends TestCase
 
         $this->repository = GenerInMemoryRepositoryStub::empty();
         $this->thisNameAlreadyExists = new ThisNameAlreadyExists($this->repository);
-        $this->useCase = $this->createMock(CreateGenre::class);
+        $this->useCase = new CreateGenre($this->repository,$this->thisNameAlreadyExists);
         $this->SUT = new CreateGenreCommandHandler($this->useCase);
 
-
         $this->genreInit = GenreStub::random();
-        $this->repository->save($this->genreInit);
-
 
     }
 
@@ -49,15 +46,17 @@ final class CreateGenreCommandHandlerTest extends TestCase
             (string)GenreNameStub::random()
         );
 
-        $this->useCase
-            ->expects($this->once())
-            ->method('__invoke');
-
         $this->SUT->__invoke($command);
+
+        $genreInMemory = $this->repository->find(GenreIdStub::create($command->id()));
+
+        $this->assertEquals((string)$command->id(), (string)$genreInMemory->id());
     }
 
     public function test_should_create_genre_when_name_exists(): void
     {
+        $this->repository->save($this->genreInit);
+
         $this->expectException(GenreThisNameAlreadyExist::class);
 
         $useCase = new CreateGenre($this->repository, $this->thisNameAlreadyExists);

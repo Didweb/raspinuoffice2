@@ -34,9 +34,7 @@ final class DoctrineGenreResponseRepository implements GenreResponseRepository
     public function allGenre(Paginated $paginated): PaginatedResponseDoctrine
     {
 
-        $query = $this
-            ->repository
-            ->createQueryBuilder('g');
+        $query = $this->repository->createQueryBuilder('g');
 
         $query = $query->getQuery();
 
