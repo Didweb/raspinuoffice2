@@ -11,4 +11,6 @@ interface LabelRepository
     public function save(Label $label): void;
 
     public function findByName(LabelName $name): ?Label;
+
+    public function remove(Label $label): void;
 }

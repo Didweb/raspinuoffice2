@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace RaspinuOffice\Backoffice\Products\Genre\Application\Command;
-
+namespace RaspinuOffice\Backoffice\Products\Label\Application\Command;
 
 use RaspinuOffice\Shared\Domain\Bus\Command\Command;
 
-final class DeleteGenreCommand extends Command
+final class DeleteLabelCommand extends Command
 {
     private string $id;
 
