@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RaspinuOffice\Backoffice\Products\Label\Infrastructure\Persistence\Repository;
+namespace RaspinuOffice\Backoffice\Products\Label\Infrastructure\Persistence\Doctrine\Repository;
 
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,6 +27,7 @@ final class DoctrineLabelRepository implements LabelRepository
     public function save(Label $label): void
     {
         $this->em->persist($label);
+        $this->em->flush();
     }
 
     public function findByName(LabelName $name): ?Label

@@ -2,29 +2,27 @@
 
 declare(strict_types=1);
 
-namespace RaspinuOffice\Backoffice\Products\Genre\Application\Services;
+namespace RaspinuOffice\Backoffice\Products\Label\Application\Services;
 
-
-use RaspinuOffice\Backoffice\Products\Genre\Domain\Exceptions\GenreThisNameAlreadyExist;
-use RaspinuOffice\Backoffice\Products\Genre\Domain\Genre;
-use RaspinuOffice\Backoffice\Products\Genre\Domain\GenreRepository;
-use RaspinuOffice\Backoffice\Products\Genre\Domain\ValueObjects\GenreName;
+use RaspinuOffice\Backoffice\Products\Label\Domain\Exceptions\LabelThisNameAlreadyExist;
+use RaspinuOffice\Backoffice\Products\Label\Domain\LabelRepository;
+use RaspinuOffice\Backoffice\Products\Label\Domain\ValueObjects\LabelName;
 
 final class ThisNameAlreadyExists
 {
-    private GenreRepository $repository;
+    private LabelRepository $repository;
 
-    public function __construct(GenreRepository $repository)
+    public function __construct(LabelRepository $repository)
     {
         $this->repository = $repository;
     }
 
-    public function __invoke(GenreName $name): bool
+    public function __invoke(LabelName $name): bool
     {
         $thisNameAlreadyExists = $this->repository->findByName($name);
 
         if ($thisNameAlreadyExists !== null) {
-            throw GenreThisNameAlreadyExist::ofName($name);
+            throw LabelThisNameAlreadyExist::ofName($name);
         }
         return false;
     }

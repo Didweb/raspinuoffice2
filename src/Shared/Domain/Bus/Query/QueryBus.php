@@ -15,5 +15,6 @@ use Throwable;
 
 interface  QueryBus
 {
+    /** @return mixed */
     public function handle(Query $query);
 }

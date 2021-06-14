@@ -22,10 +22,7 @@ final class GenreStub
 
     public static function create(GenreId $id, GenreName $name): Genre
     {
-        return new Genre(
-            $id,
-            $name
-        );
+        return new Genre($id,$name);
     }
 
 }
