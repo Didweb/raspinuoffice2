@@ -34,12 +34,13 @@ abstract class ApiController
         $this->commandBusInterface->dispatch($command);
     }
 
+    /** @return mixed */
     protected function ask(Query $query)
     {
         return $this->queryBusInterface->handle($query);
     }
 
-    public function makeResponse($data, int $httpCode = Response::HTTP_OK): JsonResponse
+    public function makeResponse(array $data, int $httpCode = Response::HTTP_OK): JsonResponse
     {
         return new JsonResponse(
             $this->serializer->serialize($data, 'json'),
