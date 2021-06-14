@@ -72,7 +72,13 @@ final class GenerInMemoryRepositoryStub
 
             public function findBy(GenreId $id): ?Genre
             {
-                // TODO: Implement findBy() method.
+                $filter = $this->arrayCollection->filter(
+                    function (Genre $genre) use ($id) {
+                        return $genre->id()->equals($id);
+                    }
+                );
+
+                return $filter->count() ? $filter->first() : null;
             }
         }
         );
