@@ -40,6 +40,9 @@ final class DeleteGenreCommandHandlerTest extends TestCase
 
     public function test_should_delete_genre(): void
     {
+        $checkGenre = $this->repository->find($this->genreInit->id());
+        $this->assertEquals((string)$this->genreInit->id(), (string)$checkGenre->id());
+
         $command = new DeleteGenreCommand(
             (string)$this->genreInit->id()
         );
