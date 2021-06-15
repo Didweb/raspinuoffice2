@@ -17,7 +17,7 @@ final class AllLabelGetController extends ApiController
     /**
      * List Label
      *
-     * @Route("/list/labels", methods={"GET"}, name="api_list_labels")
+     * @Route("/labels/list", methods={"GET"}, name="api_list_labels")
      * @OA\Tag(
      *     name="Products Label",
      *     description="Operations about label"

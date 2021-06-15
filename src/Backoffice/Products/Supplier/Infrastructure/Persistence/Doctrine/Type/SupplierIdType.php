@@ -7,6 +7,7 @@ namespace RaspinuOffice\Backoffice\Products\Supplier\Infrastructure\Persistence\
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
+use RaspinuOffice\Backoffice\Products\Supplier\Domain\ValueObjects\SupplierId;
 
 final class SupplierIdType extends StringType
 {

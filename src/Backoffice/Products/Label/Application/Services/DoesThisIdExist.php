@@ -28,5 +28,4 @@ final class DoesThisIdExist
         }
         return $label;
     }
-
 }

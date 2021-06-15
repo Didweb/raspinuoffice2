@@ -5,20 +5,20 @@ declare(strict_types=1);
 namespace RaspinuOffice\Api\Application\Controller\Products\Supplier;
 
 
-use RaspinuOffice\Api\Application\Controller\Products\Supplier\Request\CreateSupplierRequest;
-use RaspinuOffice\Backoffice\Products\Supplier\Application\Command\CreateSupplierCommand;
+use RaspinuOffice\Api\Application\Controller\Products\Supplier\Request\DeleteSupplierRequest;
+use RaspinuOffice\Backoffice\Products\Supplier\Application\Command\DeleteSupplierCommand;
 use RaspinuOffice\Shared\Infrastructure\Symfony\ApiController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
 
-final class CreateLabelPutController extends ApiController
+final class RemoveSupplierDeleteController extends ApiController
 {
     /**
-     * Add a Supplier
+     * Remove a supplier
      *
-     * @Route("/supplier/add", methods={"PUT"}, name="api_supplier_add")
+     * @Route("/supplier/delete", methods={"DELETE"}, name="api_supplier_delete")
      * @OA\Tag(
      *     name="Products Supplier",
      *     description="Operations about Supplier"
@@ -32,20 +32,14 @@ final class CreateLabelPutController extends ApiController
      *                property="supplier",
      *                type="array",
      *                example={{
-     *                  "id": "b026b3f4-be48-11eb-8529-0242ac130003",
-     *                  "name": "DiscoPunt SL"
+     *                  "id": "b026b3f4-be48-11eb-8529-0242ac130003"
      *                }},
      *                @OA\Items(
      *                      @OA\Property(
      *                         property="id",
      *                         type="string",
      *                         example=""
-     *                      ),
-     *                      @OA\Property(
-     *                         property="name",
-     *                         type="string",
-     *                         example=""
-     *                      ),
+     *                      )
      *                ),
      *             ),
      *        ),
@@ -56,24 +50,29 @@ final class CreateLabelPutController extends ApiController
      *     ),
      * @OA\Response(
      *        response="202",
-     *        description="Accepetd: This Supplier name already exists.",
+     *        description="Accepetd: This Supplier name not exists. ",
+     *     ),
+     * @OA\Response(
+     *        response="204",
+     *        description="No Content: This supplier name not exists. ",
      *     )
      * @param Request $request
      * @return Response
      */
     public function __invoke(Request $request): Response
     {
-        $request = CreateSupplierRequest::fromContent($request->toArray());
+        $request = DeleteSupplierRequest::fromContent($request->toArray());
 
-        $createSupplierCommand = new CreateSupplierCommand(
-            $request->id(),
-            $request->name(),
+        $removeSupplierCommand = new DeleteSupplierCommand(
+            $request->id()
         );
 
-        $this->dispatch($createSupplierCommand);
+        $this->dispatch($removeSupplierCommand);
 
-        return $this->makeResponse($createSupplierCommand->_toArray(), Response::HTTP_CREATED);
+        return $this->makeResponse($removeSupplierCommand->_toArray(), Response::HTTP_CREATED);
+
     }
+
     protected function exceptions(): array
     {
         return [];

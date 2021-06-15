@@ -7,15 +7,13 @@ namespace RaspinuOffice\Api\Application\Controller\Products\Supplier\Request;
 
 use InvalidArgumentException;
 
-final class CreateSupplierRequest
+final class DeleteSupplierRequest
 {
     private string $id;
-    private string $name;
 
-    public function __construct(string $id, string $name)
+    public function __construct(string $id)
     {
         $this->id = $id;
-        $this->name = $name;
     }
 
     public function id(): string
@@ -23,23 +21,17 @@ final class CreateSupplierRequest
         return $this->id;
     }
 
-    public function name(): string
-    {
-        return $this->name;
-    }
-
     public static function fromContent(array $content): self
     {
         $content = $content['supplier'][0];
 
-        if (!isset($content['id'])
-            || !isset($content['name'])) {
-            throw new InvalidArgumentException('Field id and name  is required');
+        if (!isset($content['id']))
+        {
+            throw new InvalidArgumentException('Field id is required');
         }
 
         return new self(
-            $content['id'],
-            $content['name']
+            $content['id']
         );
     }
 }
