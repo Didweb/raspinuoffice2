@@ -16,10 +16,10 @@ final class AllSupplierQueryHandler implements MessageHandlerInterface
     private SupplierResponseRepository $repository;
     private FindAllSupplier $findAllSupplier;
 
-    public function __construct(SupplierResponseRepository $repository, FindAllSupplier $findAllSupplier)
+    public function __construct(SupplierResponseRepository $repository)
     {
         $this->repository = $repository;
-        $this->findAllSupplier = $findAllSupplier;
+        $this->findAllSupplier = new FindAllSupplier($repository);
     }
 
     public function __invoke(AllSupplierQuery $query): PaginatedResponse

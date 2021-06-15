@@ -52,20 +52,20 @@ final class LabelInMemoryRepositoryStub
                 return $filter->count() ? $filter->first() : null;
             }
 
-            public function find(LabelId $labelId): ?Label
+            public function find(LabelId $id): ?Label
             {
                 $filter = $this->arrayCollection->filter(
-                    function (Label $label) use ($labelId) {
-                        return $label->id()->equals($labelId);
+                    function (Label $label) use ($id) {
+                        return $label->id()->equals($id);
                     }
                 );
 
                 return $filter->count() ? $filter->first() : null;
             }
 
-            public function remove(Label $genre): void
+            public function remove(Label $label): void
             {
-                $this->arrayCollection->removeElement($genre);
+                $this->arrayCollection->removeElement($label);
             }
 
 
