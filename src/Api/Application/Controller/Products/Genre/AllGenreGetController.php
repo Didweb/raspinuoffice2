@@ -43,7 +43,7 @@ final class AllGenreGetController extends ApiController
             )
         );
 
-        return $this->makeResponse($genre);
+        return $this->makeObjectResponse($genre);
     }
 
     protected function exceptions(): array

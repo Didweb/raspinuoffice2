@@ -1,0 +1,8 @@
+RaspinuOffice\Backoffice\Products\Supplier\Domain\Supplier:
+  type: entity
+
+  id:
+    id: { type: supplier_id }
+
+  fields:
+    name: { type: supplier_name, unique: true}

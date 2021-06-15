@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RaspinuOffice\Shared\Infrastructure\Symfony;
 
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use RaspinuOffice\Shared\Domain\Bus\Command\Command;
@@ -44,6 +45,20 @@ abstract class ApiController
     {
         return new JsonResponse(
             $this->serializer->serialize($data, 'json'),
+            $httpCode,
+            [],
+            true
+        );
+    }
+
+    public function makeObjectResponse($response, int $httpCode = Response::HTTP_OK, array $serializationGroups = []): JsonResponse
+    {
+
+        return new JsonResponse(
+            $this->serializer->serialize(
+                $response,
+                'json'
+            ),
             $httpCode,
             [],
             true
