@@ -6,8 +6,10 @@ namespace RaspinuOffice\Backoffice\Products\Style\Infrastructure\Persistence\Doc
 
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
+use Doctrine\DBAL\Types\StringType;
+use RaspinuOffice\Backoffice\Products\Style\Domain\ValueObjects\StyleName;
 
-final class StyleNameType
+final class StyleNameType extends StringType
 {
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
