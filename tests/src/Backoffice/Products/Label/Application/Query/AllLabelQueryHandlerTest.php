@@ -23,9 +23,9 @@ final class AllLabelQueryHandlerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $genreResponseConverter = new LabelResponseConverter();
-        $paginatedGenreResponseConverter = new PaginatedLabelResponseConverter($genreResponseConverter);
-        $repositoryResponse = LabelInMemoryRepositoryResponseStub::empty($paginatedGenreResponseConverter);
+        $labelResponseConverter = new LabelResponseConverter();
+        $paginatedLabelResponseConverter = new PaginatedLabelResponseConverter($labelResponseConverter);
+        $repositoryResponse = LabelInMemoryRepositoryResponseStub::empty($paginatedLabelResponseConverter);
 
 
         $this->useCase = new FindAllLabel($repositoryResponse);

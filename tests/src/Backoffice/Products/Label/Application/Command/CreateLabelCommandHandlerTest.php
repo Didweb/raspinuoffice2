@@ -59,11 +59,11 @@ final class CreateLabelCommandHandlerTest extends TestCase
 
         $useCase = new CreateLabel($this->repository, $this->thisNameAlreadyExists);
 
-        $genre2 = LabelStub::create($this->labelInit->id(), $this->labelInit->name());
+        $label2 = LabelStub::create($this->labelInit->id(), $this->labelInit->name());
 
         $command = new CreateLabelCommand(
-            (string)$genre2->id(),
-            (string)$genre2->name()
+            (string)$label2->id(),
+            (string)$label2->name()
         );
 
         $useCase->__invoke($command);
