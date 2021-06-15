@@ -17,7 +17,7 @@ final class AllLabelGetController extends ApiController
     /**
      * List Label
      *
-     * @Route("/list/labels", methods={"GET"}, name="api_list_labels")
+     * @Route("/labels/list", methods={"GET"}, name="api_list_labels")
      * @OA\Tag(
      *     name="Products Label",
      *     description="Operations about label"
@@ -37,14 +37,14 @@ final class AllLabelGetController extends ApiController
      */
     public function __invoke(Request $request): Response
     {
-        $genre = $this->ask(
+        $label = $this->ask(
             new AllLabelQuery(
                 (int)$request->get('page', 1),
                 (int)$request->get('pageSize')
             )
         );
 
-        return $this->makeResponse($genre);
+        return $this->makeObjectResponse($label);
     }
     protected function exceptions(): array
     {

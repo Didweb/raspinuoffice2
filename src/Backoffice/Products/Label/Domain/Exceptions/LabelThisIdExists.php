@@ -10,10 +10,10 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 final class LabelThisIdExists  extends HttpException
 {
-    public static function ofId(LabelId $genreId): self
+    public static function ofId(LabelId $labelId): self
     {
         return new self(204,
-                        sprintf('Label with id <%s> it already exists', (string)$genreId)
+                        sprintf('Label with id <%s> it already exists', (string)$labelId)
         );
     }
 }

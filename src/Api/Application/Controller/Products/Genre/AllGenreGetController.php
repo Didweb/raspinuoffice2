@@ -16,7 +16,7 @@ final class AllGenreGetController extends ApiController
     /**
      * List Genre
      *
-     * @Route("/list/genres", methods={"GET"}, name="api_list_genres")
+     * @Route("/genres/list", methods={"GET"}, name="api_list_genres")
      * @OA\Tag(
      *     name="Products Genre",
      *     description="Operations about genre"
@@ -43,7 +43,7 @@ final class AllGenreGetController extends ApiController
             )
         );
 
-        return $this->makeResponse($genre);
+        return $this->makeObjectResponse($genre);
     }
 
     protected function exceptions(): array
