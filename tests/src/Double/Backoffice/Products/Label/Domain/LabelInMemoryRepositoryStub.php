@@ -6,7 +6,6 @@ namespace RaspinuOffice\Tests\Double\Backoffice\Products\Label\Domain;
 
 
 use Doctrine\Common\Collections\ArrayCollection;
-use PHPUnit\Framework\TestCase;
 use RaspinuOffice\Backoffice\Products\Label\Domain\Label;
 use RaspinuOffice\Backoffice\Products\Label\Domain\LabelRepository;
 use RaspinuOffice\Backoffice\Products\Label\Domain\ValueObjects\LabelId;

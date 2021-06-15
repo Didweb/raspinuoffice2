@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace RaspinuOffice\Backoffice\Products\Label\Domain;
 
+use RaspinuOffice\Backoffice\Products\Label\Domain\ValueObjects\LabelId;
 use RaspinuOffice\Backoffice\Products\Label\Domain\ValueObjects\LabelName;
 
 interface LabelRepository
@@ -11,6 +12,8 @@ interface LabelRepository
     public function save(Label $label): void;
 
     public function findByName(LabelName $name): ?Label;
+
+    public function findBy(LabelId $id): ?Label;
 
     public function remove(Label $label): void;
 }
