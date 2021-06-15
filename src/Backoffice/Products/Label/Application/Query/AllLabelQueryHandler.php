@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace RaspinuOffice\Backoffice\Products\Label\Application\Query;
 
-
 use RaspinuOffice\Backoffice\Products\Label\Application\Services\FindAllLabel;
 use RaspinuOffice\Backoffice\Products\Label\Domain\LabelResponseRepository;
 use RaspinuOffice\Shared\Domain\Paginated\Paginated;
