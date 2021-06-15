@@ -25,6 +25,11 @@ doctrine:
               class: RaspinuOffice\Backoffice\Products\Supplier\Infrastructure\Persistence\Doctrine\Type\SupplierIdType
             supplier_name:
               class: RaspinuOffice\Backoffice\Products\Supplier\Infrastructure\Persistence\Doctrine\Type\SupplierNameType
+
+            style_id:
+              class: RaspinuOffice\Backoffice\Products\Style\Infrastructure\Persistence\Doctrine\Type\StyleIdType
+            style_name:
+              class: RaspinuOffice\Backoffice\Products\Style\Infrastructure\Persistence\Doctrine\Type\StyleNameType
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
@@ -50,3 +55,10 @@ doctrine:
               dir: '%kernel.project_dir%/src/Backoffice/Products/Supplier/Infrastructure/Persistence/Doctrine/Mapping'
               prefix: 'RaspinuOffice\Backoffice\Products\Supplier\Domain'
               alias: supplier
+
+            style:
+              mapping: true
+              type: yml
+              dir: '%kernel.project_dir%/src/Backoffice/Products/Style/Infrastructure/Persistence/Doctrine/Mapping'
+              prefix: 'RaspinuOffice\Backoffice\Products\Style\Domain'
+              alias: style

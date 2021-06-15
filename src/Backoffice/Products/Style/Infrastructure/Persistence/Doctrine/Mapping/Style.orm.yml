@@ -1,0 +1,8 @@
+RaspinuOffice\Backoffice\Products\Style\Domain\Style:
+  type: entity
+
+  id:
+    id: { type: style_id }
+
+  fields:
+    name: { type: style_name, unique: true}
