@@ -16,10 +16,10 @@ final class AllStyleQueryHandler implements MessageHandlerInterface
     private StyleResponseRepository $repository;
     private FindAllStyle $findAllStyle;
 
-    public function __construct(StyleResponseRepository $repository, FindAllStyle $findAllStyle)
+    public function __construct(StyleResponseRepository $repository)
     {
         $this->repository = $repository;
-        $this->findAllStyle = $findAllStyle;
+        $this->findAllStyle = new FindAllStyle($repository);
     }
 
     public function __invoke(AllStyleQuery $query): PaginatedResponse

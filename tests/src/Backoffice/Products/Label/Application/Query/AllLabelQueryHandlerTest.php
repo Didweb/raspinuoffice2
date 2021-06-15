@@ -50,7 +50,7 @@ final class AllLabelQueryHandlerTest extends TestCase
         $this->assertEquals((string)$this->labelRandom[$idRandom]->name(), (string)$result->data()[$idRandom]->name());
     }
 
-    public function test_should_list_all_genre_page_2(): void
+    public function test_should_list_all_label_page_2(): void
     {
         $query = new AllLabelQuery(2,5);
 
