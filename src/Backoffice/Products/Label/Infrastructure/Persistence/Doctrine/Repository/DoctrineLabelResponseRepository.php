@@ -18,16 +18,16 @@ final class DoctrineLabelResponseRepository implements LabelResponseRepository
 {
     private EntityManagerInterface $em;
     private EntityRepository $repository;
-    private PaginatedLabelResponseConverter $paginatedGenreResponseConverter;
+    private PaginatedLabelResponseConverter $paginatedLabelResponseConverter;
 
     public function __construct(EntityManagerInterface $em,
-        PaginatedLabelResponseConverter $paginatedGenreResponseConverter)
+        PaginatedLabelResponseConverter $paginatedLabelResponseConverter)
     {
         $this->em = $em;
         /** @var EntityRepository $repository */
         $repository = $this->em->getRepository(Label::class);
         $this->repository = $repository;
-        $this->paginatedGenreResponseConverter = $paginatedGenreResponseConverter;
+        $this->paginatedLabelResponseConverter = $paginatedLabelResponseConverter;
     }
     public function allLabel(Paginated $paginated): PaginatedResponse
     {
@@ -35,7 +35,7 @@ final class DoctrineLabelResponseRepository implements LabelResponseRepository
 
         $query = $query->getQuery();
 
-        return $this->paginatedGenreResponseConverter->__invoke(
+        return $this->paginatedLabelResponseConverter->__invoke(
             PaginatedCollection::createFromQuery($query, $paginated),
             $paginated
         );
