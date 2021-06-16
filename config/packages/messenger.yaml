@@ -9,6 +9,9 @@ framework:
             command.bus:
                 middleware:
                     - doctrine_transaction
+            command.event:
+                middleware:
+                    - doctrine_transaction
 
         transports:
             # https://symfony.com/doc/current/messenger.html#transport-configuration
