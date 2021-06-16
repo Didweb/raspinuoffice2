@@ -12,10 +12,12 @@ use RaspinuOffice\Backoffice\Products\Style\Application\Services\CreateStyle;
 use RaspinuOffice\Backoffice\Products\Style\Application\Services\ThisNameAlreadyExists;
 use RaspinuOffice\Backoffice\Products\Style\Domain\Exceptions\StyleThisNameAlreadyExist;
 use RaspinuOffice\Backoffice\Products\Style\Domain\StyleRepository;
+use RaspinuOffice\Shared\Domain\Bus\Event\MessengerEventBus;
 use RaspinuOffice\Tests\Double\Backoffice\Products\Style\StyleInMemoryRepositoryStub;
 use RaspinuOffice\Tests\Double\Backoffice\Products\Style\StyleStub;
 use RaspinuOffice\Tests\Double\Backoffice\Products\Style\ValueObjects\StyleIdStub;
 use RaspinuOffice\Tests\Double\Backoffice\Products\Style\ValueObjects\StyleNameStub;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 final class CreateStyleCommandHandlerTest extends TestCase
 {
@@ -24,6 +26,10 @@ final class CreateStyleCommandHandlerTest extends TestCase
     private StyleRepository $repository;
     private ThisNameAlreadyExists $thisNameAlreadyExists;
     private $styleInit;
+    /**
+     * @var \PHPUnit\Framework\MockObject\MockObject|MessengerEventBus
+     */
+    private $eventBus;
 
     protected function setUp(): void
     {
@@ -31,7 +37,8 @@ final class CreateStyleCommandHandlerTest extends TestCase
 
         $this->repository = StyleInMemoryRepositoryStub::empty();
         $this->thisNameAlreadyExists = new ThisNameAlreadyExists($this->repository);
-        $this->useCase = new CreateStyle($this->repository,$this->thisNameAlreadyExists);
+        $this->eventBus = $this->createMock(MessengerEventBus::class);
+        $this->useCase = new CreateStyle($this->repository,$this->thisNameAlreadyExists, $this->eventBus);
         $this->SUT = new CreateStyleCommandHandler($this->useCase);
 
         $this->styleInit = StyleStub::random();
@@ -57,7 +64,7 @@ final class CreateStyleCommandHandlerTest extends TestCase
         $this->repository->save($this->styleInit);
         $this->expectException(StyleThisNameAlreadyExist::class);
 
-        $useCase = new CreateStyle($this->repository, $this->thisNameAlreadyExists);
+        $useCase = new CreateStyle($this->repository, $this->thisNameAlreadyExists, $this->eventBus);
 
         $styletesting = StyleStub::create($this->styleInit->id(), $this->styleInit->name());
 

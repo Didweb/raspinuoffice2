@@ -8,7 +8,7 @@ namespace RaspinuOffice\Shared\Domain\Bus\Event;
 use Symfony\Component\Messenger\HandleTrait;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-final class MessengerEventBus implements EventBus
+class MessengerEventBus implements EventBus
 {
     use HandleTrait {
         handle as handleEvent;
@@ -20,8 +20,8 @@ final class MessengerEventBus implements EventBus
     }
 
     /** @return mixed */
-    public function dispatch(Event $evnet)
+    public function dispatch(Event $event)
     {
-        return $this->handleEvent($evnet);
+        return $this->handleEvent($event);
     }
 }
