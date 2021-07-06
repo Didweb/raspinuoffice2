@@ -9,19 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var AppComponent = (function () {
-    function AppComponent() {
+var DefaultComponent = (function () {
+    function DefaultComponent() {
     }
-    AppComponent = __decorate([
+    DefaultComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/view/layout.html',
-            directives: [router_1.ROUTER_DIRECTIVES]
+            selector: 'default',
+            template: '<h1>Compenent por defecto</h1>'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], DefaultComponent);
+    return DefaultComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.DefaultComponent = DefaultComponent;
+//# sourceMappingURL=default.component.js.map
