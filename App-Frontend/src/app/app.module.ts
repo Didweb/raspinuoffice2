@@ -7,13 +7,18 @@ import { AppComponent } from './app.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { GenreListService } from './genre-list/genre-list.service';
 import { GenreListComponent } from './genre-list/genre-list.component';
+import { HomeComponent } from './home/home.component';
 import { Routing } from './app.routing';
+import {RouterModule} from "@angular/router";
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    GenreListComponent
+    GenreListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +26,7 @@ import { Routing } from './app.routing';
     HttpClientModule
   ],
   providers: [GenreListService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }

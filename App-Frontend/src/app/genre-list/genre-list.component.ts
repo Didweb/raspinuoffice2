@@ -14,7 +14,7 @@ export class GenreListComponent implements OnInit {
   constructor(public  genreListService: GenreListService) {}
 
   ngOnInit() {
-    this.genres =this.genreListService.getGenre();
+   this.genres = this.genreListService.getGenre();
   }
 
 }
