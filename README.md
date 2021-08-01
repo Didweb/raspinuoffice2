@@ -42,3 +42,19 @@ Run Psalm: `./vendor/bin/psalm`
 
 #### Phpunit
 Run Phpunit: `./vendor/bin/phpunit`
+
+
+---
+# Frontend
+
+El front end se encuentra en App-Frontend, creado con Angular.
+
+
+### Servidor Angular
+
+Para levenatar el servidro de angular:
+
+- `cd App-Frontend`
+- `ng serve`
+
+Se accede mediante: `http://localhost:4200`
